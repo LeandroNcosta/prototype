@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,200;1,500&display=swap");
+
+/* ========= Settings general ========== */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.3%; /*1rem = 16px*/
+
+  /* Paleta de cores */
+  --color1: hsl(51, 100%, 50%);
+  --color2: hsl(0, 0%, 0%);
+  --color3: hsl(0, 0%, 100%);
+}
+
+html {
+  font-family: "Poppins", "Times New Roman", Times, serif;
+  scroll-behavior: smooth; /*scroll suave*/
+}
+
+/* ============= Section presentation =========== */
+
+#presentation {
+  background-image: url(/images/background.jpeg);
+  background-size: cover; /*especifica o tamanho das imagens de fundo*/
+  background-position: top center; /*posicão das imagens de fundo*/
+  position: relative;
+  z-index: 1;
+}
+
+#presentation h1 {
+  font-size: 5rem;
+  color: transparent; /*texto transparente */
+  display: block;
+  width: fit-content; /*Não conta a caixa do elemento toda, apenas o que ele ocupa*/
+  position: relative;
+
+  animation: text_reveal 0.5s ease forwards;
+  animation-delay: 1.5s;
+}
+
+#presentation h1:nth-child(1) {
+  animation-delay: 0.8s;
+}
+
+#presentation h1:nth-child(2) {
+  animation-delay: 1.8s;
+}
+
+#presentation h1:nth-child(3) {
+  animation: text_reveal_name 0.5s ease forwards;
+  animation-delay: 2.8s;
+}
+
+#presentation h1 span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  animation: text_reveal_box 1s ease;
+  animation-delay: 0.5s;
+  background-color: var(--color1);
+}
+
+#presentation h1:nth-child(1) span {
+  animation-delay: 0.5s;
+}
+
+#presentation h1:nth-child(2) span {
+  animation-delay: 1.5s;
+}
+
+#presentation h1:nth-child(3) span {
+  animation-delay: 2.5s;
+}
+
+#presentation .cta {
+  font-size: 2rem;
+  color: var(--color1);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+
+  display: inline-block;
+  padding: 10px 30px;
+  border: 2px solid var(--color1);
+  margin-top: 20px;
+  background-color: transparent;
+
+  /* transicões */
+  transition: 0.5s ease;
+  transition-property: background-color, color;
+}
+
+/* ao passar pelo mouse */
+#presentation .cta:hover {
+  color: var(--color3);
+  font-weight: 500;
+  background-color: var(--color1);
+}
+
+a {
+  text-decoration: none;
+}
+
+/*criando uma caixa pelo css*/
+#presentation::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color2);
+  opacity: 0.5; /*opacidade do background*/
+  z-index: -1;
+}
+
+/*==================== Section portfolio =================*/
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-title {
+  font-size: 4rem;
+  font-weight: 500;
+  color: var(--color2);
+  margin-bottom: 10px;
+  margin-top: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+
+#portfolio .portfolio {
+  flex-direction: column;
+  max-width: 1200px; /*largura máxima*/
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+#portfolio .all-projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#portfolio .project-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+  margin: 20px auto;
+
+  overflow: hidden; /*A propriedade overflow especifica quando o conteúdo de um elemento de nível de bloco deve ser cortado, exibido com barras de rolagem ou se transborda do elemento.*/
+
+  border-radius: 10px;
+}
+
+#portfolio .project-info {
+  padding: 30px;
+
+  flex-basis: 50%; /* define o tamanho principal inicial de um item flex. Ele define o tamanho da caixa de conteúdo, a menos que seja definido de outra forma com dimensionamento de caixa.*/
+
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  background-image: linear-gradient(60deg, #5a10b5 0%, #002349 100%);
+  color: var(--color3);
+}
+
+#portfolio .portfolio-header h1 {
+  margin-bottom: 50px;
+}
+
+#portfolio .project-info h1 {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+#portfolio .project-info h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+p {
+  font-size: 1.4rem;
+  margin-top: 5px;
+  line-height: 2.5rem;
+  font-weight: 200;
+  letter-spacing: 0.05rem;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+
+  object-fit: cover; /*especifica como o conteúdo de um elemento substituído deve ser ajustado à caixa estabelecida pela altura e largura usadas.*/
+}
+
+#portfolio .project-img {
+  flex-basis: 50%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+#portfolio .project-img:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  opacity: 0.7;
+}
+
+#portfolio .project-img img {
+  transition: 0.5s ease transform; /*tempo transicao da imagem pelo zoom*/
+}
+
+#portfolio .project-item:hover .project-img img {
+  transform: scale(1.1); /*zoom ao passar mouse na imagem*/
+}
+
+/* Keyframes */
+
+@keyframes text_reveal {
+  100% {
+    color: var(--color3);
+  }
+}
+@keyframes text_reveal_name {
+  100% {
+    color: var(--color1);
+    font-weight: 500px;
+  }
+}
+
+@keyframes text_reveal_box {
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+/* Media Queries */
+@media only screen and (min-width: 768px) {
+  #portfolio .project-item {
+    flex-direction: row;
+    height: 400px;
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+  #portfolio .all-projects .project-info {
+    height: 100%;
+  }
+  #portfolio .all-projects .project-img {
+    height: 100%;
+  }
+  #portfolio .project-item:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+}
+
+.endpage {
+  background-color: #29323c;
+  height: 50px;
+}
+
+details {
+  font-family: Poppins;
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+details a {
+  font-family: Poppins;
+  color: white;
+  font-size: 1.5rem;
+  letter-spacing: 0.3rem;
+}
